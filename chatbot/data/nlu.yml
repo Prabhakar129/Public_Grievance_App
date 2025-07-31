@@ -1,0 +1,149 @@
+version: "3.1"
+
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - moin
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
+
+- intent: goodbye
+  examples: |
+    - cu
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
+
+- intent: affirm
+  examples: |
+    - yes
+    - y
+    - indeed
+    - of course
+    - that sounds good
+    - correct
+
+- intent: deny
+  examples: |
+    - no
+    - n
+    - never
+    - I don't think so
+    - don't like that
+    - no way
+    - not really
+
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?
+
+- intent: select_submit
+  examples: |
+    - submit
+
+- intent: select_review
+  examples: |
+    - review
+
+- intent: select_faq
+  examples: |
+    - faq
+
+- intent: faq/how_to_file_grievance
+  examples: |
+    - How can I file a grievance?
+    - Where do I lodge a complaininst a government office in Goa?
+    - How to raise an issue with the Goa government?
+    - I want to report a problem with a department, how?
+    - What's the procedure to submit a grievance?
+
+- intent: faq/grievance_types
+  examples: |
+    - What issues can I report?
+    - What types of grievances are accepted?
+    - Can I report delay in service?
+    - Is corruption included under grievances?
+    - Can I file a complaint for poor service?
+
+- intent: faq/resolution_time
+  examples: |
+    - How long will it take to resolve my grievance?
+    - When will I get a response?
+    - What's the expected resolution time?
+    - In how many days is a grievance solved?
+    - Will my complaint be addressed quickly?
+
+- intent: faq/track_status
+  examples: |
+    - How do I check my grievance status?
+    - Can I track my complaint?
+    - Where can I see the status of my issue?
+    - How to know if my grievance is being processed?
+    - How to follow up on a complaint?
+
+- intent: faq/not_resolved
+  examples: |
+    - What if my grievance is not resolved?
+    - No one responded to my complaint, what now?
+    - How do I escalate a grievance?
+    - My complaint is pending for too long
+    - Can I re-submit a grievance?
+
+- intent: faq/registration_required
+  examples: |
+    - Do I need to sign up to file a grievance?
+    - Is registration required to complain?
+    - Can I file a complaint without registering?
+    - Do I need an account to raise an issue?
+    - Can I submit grievances as a guest?
+
+- intent: faq/helpline_contact
+  examples: |
+    - Is there a helpline number?
+    - How can I contact support?
+    - Whom should I call for grievance help?
+    - Is there a grievance contact number?
+    - Where can I get help?
+
+# - intent: faq/anonymous_grievance
+#   examples: |
+#     - Can I file a complaint anonymously?
+#     - Do I have to reveal my identity?
+#     - Can I stay anonymous while submitting a grievance?
+#     - Will my name be hidden?
+#     - Is anonymous complaint allowed?
+
+# - intent: faq/required_documents
+#   examples: |
+#     - What documents are needed for complaint?
+#     - Do I need to upload any proof?
+#     - What should I attach with the grievance?
+#     - Do I need to provide ID or photos?
+#     - Are documents required?
+
+- intent: faq/departments_covered
+  examples: |
+    - Which departments can I complain about?
+    - Is electricity department covered?
+    - Can I file complaint against PWD?
+    - What departments are part of this system?
+    - Is health department included?

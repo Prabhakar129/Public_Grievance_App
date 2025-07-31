@@ -1,0 +1,22 @@
+{
+  "utter_faq/ask_name": [
+    {
+      "text": "I'm GoMiles Assistant 🚖, your ride companion! Ready to book you a cab."
+    }
+  ],
+  "utter_faq/ask_weather": [
+    {
+      "text": "I can't predict the skies yet, but whatever the weather — GoMiles gets you there."
+    }
+  ],
+  "utter_faq/ask_who_made_you": [
+    {
+      "text": "I was built by the GoMiles tech crew to help you ride smarter and faster."
+    }
+  ],
+  "utter_faq/joke": [
+    {
+      "text": "Why did the taxi driver get promoted? Because he was always going the extra mile! 😄"
+    }
+  ]
+}

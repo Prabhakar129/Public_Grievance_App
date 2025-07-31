@@ -1,0 +1,62 @@
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - bot_challenge
+  - select_submit
+  - select_review
+  - select_faq
+  - faq
+
+responses:
+  utter_goodbye:
+  - text: "Bye"
+
+  utter_iamabot:
+  - text: "I am a bot, powered by Rasa."
+
+  utter_wip:
+  - text: "This feature is a work in progress"
+
+  utter_ask_faq:
+  - text: "What question would you like me to answer?"
+
+  utter_faq/how_to_file_grievance:
+    - text: "You can file a grievance either by a chatbot or a form."
+
+  utter_faq/grievance_types:
+    - text: "You can report issues like service delays, misbehavior, corruption, lack of facilities, or any grievance against government departments."
+
+  utter_faq/resolution_time:
+    - text: "Most grievances are resolved within 15 to 30 days depending on the department and issue severity."
+
+  utter_faq/track_status:
+    - text: "You can track your grievance using the complaint ID or mobile number on the Goa grievance app."
+
+  utter_faq/not_resolved:
+    - text: "If your grievance isn’t resolved, you can escalate it to a higher authority or file a reminder through the app."
+
+  utter_faq/registration_required:
+    - text: "Registration is recommended so you can track and follow up on your grievance."
+
+  utter_faq/helpline_contact:
+    - text: "You can contact the grievance helpline at +91 832 2419550 for assistance with filing or tracking complaints."
+
+  # utter_faq/anonymous_grievance:
+  #   - text: "Some departments may allow anonymous grievances, but tracking and resolution updates will not be possible without contact details."
+
+  # utter_faq/required_documents:
+  #   - text: "You may need to upload documents like ID proof, photos, or receipts depending on the nature of your grievance."
+
+  utter_faq/departments_covered:
+    - text: "Departments like PWD, Electricity, Health, Education, Panchayat, and more are covered under the Goa grievance redressal system."
+
+actions:
+- action_give_options
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
