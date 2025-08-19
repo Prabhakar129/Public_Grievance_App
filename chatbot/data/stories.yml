@@ -1,30 +1,3 @@
 version: "3.1"
 
 stories:
-
-- story: happy path
-  steps:
-  - intent: greet
-  - action: action_give_options
-  - checkpoint: check_asked_options
-
-- story: Submit Grievance
-  steps:
-  - checkpoint: check_asked_options
-  - intent: select_submit
-  - action: utter_wip
-  - checkpoint: check_handled_options
-
-- story: Review Grievance
-  steps:
-  - checkpoint: check_asked_options
-  - intent: select_review
-  - action: utter_wip
-  - checkpoint: check_handled_options
-
-
-- story: Goodbye
-  steps:
-  - checkpoint: check_handled_options
-  - intent: goodbye
-  - action: utter_goodbye

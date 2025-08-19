@@ -5,57 +5,149 @@ intents:
   - goodbye
   - affirm
   - deny
-  - bot_challenge
   - select_submit
   - select_review
   - select_faq
   - faq
+  - start
+  - cancel
+  - select_grievance
+
+entities:
+  - time
+  - grievance_id
+
+slots:
+  department:
+    type: text
+    mappings:
+    - type: from_text
+      conditions:
+        - active_loop: grievance_form
+          requested_slot: department
+
+  title:
+    type: text
+    mappings:
+    - type: from_text
+      conditions:
+        - active_loop: grievance_form
+          requested_slot: title
+
+  description:
+    type: text
+    mappings:
+    - type: from_text
+      conditions:
+        - active_loop: grievance_form
+          requested_slot: description
+
+  date:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: time
+      conditions:
+        - active_loop: grievance_form
+          requested_slot: date
+
+  location:
+    type: text
+    mappings:
+    - type: from_text
+      conditions:
+        - active_loop: grievance_form
+          requested_slot: location
+
+  attachments:
+    type: any
+    mappings:
+    - type: from_text
+      conditions:
+        - active_loop: grievance_form
+          requested_slot: attachments
+
+  grievance_id:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: grievance_id
+
+forms:
+  grievance_form:
+    required_slots:
+    - department
+    - title
+    - description
+    - date
+    - location
+    - attachments
 
 responses:
   utter_goodbye:
-  - text: "Bye"
+  - text: "Good bye!"
 
-  utter_iamabot:
-  - text: "I am a bot, powered by Rasa."
-
-  utter_wip:
-  - text: "This feature is a work in progress"
+  utter_what_now:
+  - text: "Anything else I can help you with?"
 
   utter_ask_faq:
   - text: "What question would you like me to answer?"
 
+  utter_ask_title:
+  - text: "Provide a brief description of the problem(One sentence)"
+
+  utter_ask_description:
+  - text: "Describe the problem in detail"
+
+  utter_ask_date:
+  - text: "When did it happen?"
+
+  utter_ask_location:
+  - text: "Where did it happen?"
+
+  utter_ask_attachments:
+  - text: "If you have any supporting documents or photos, please upload them now. Type 'skip' otherwise."
+
+  utter_ask_confirmation:
+  - text: "Department: {department}\nTitle: {title}\nDescription: {description}\nDate: {date}\nLocation: {location}\nSubmit grievance?"
+  
+  utter_submit_grievance:
+  - text: The grievance has been submitted
+  
+  utter_cancel_grievance:
+  - text: The grievance submission has been cancelled
+  
   utter_faq/how_to_file_grievance:
-    - text: "You can file a grievance either by a chatbot or a form."
+  - text: "Choose the department and category, describe your issue, attach documents if needed, and submit, you can do this through this chatbot or the form present in the app. You’ll get an Acknowledgement Number to track your complaint."
 
   utter_faq/grievance_types:
-    - text: "You can report issues like service delays, misbehavior, corruption, lack of facilities, or any grievance against government departments."
+  - text: "You can file grievances about corruption, service issues, harassment, land/legal matters, pensions, government schemes, and more."
 
   utter_faq/resolution_time:
-    - text: "Most grievances are resolved within 15 to 30 days depending on the department and issue severity."
+  - text: "Most grievances are resolved within 7–30 days. You’ll be updated regularly on the progress."
 
   utter_faq/track_status:
-    - text: "You can track your grievance using the complaint ID or mobile number on the Goa grievance app."
+  - text: "Use your Acknowledgement Number in the app or portal to track your grievance status and get updates."
 
   utter_faq/not_resolved:
-    - text: "If your grievance isn’t resolved, you can escalate it to a higher authority or file a reminder through the app."
+  - text: "If unresolved, your grievance will be escalated. You can also contact the helpline for help."
 
   utter_faq/registration_required:
-    - text: "Registration is recommended so you can track and follow up on your grievance."
+  - text: "Yes, registration is required to file and track grievances."
 
   utter_faq/helpline_contact:
-    - text: "You can contact the grievance helpline at +91 832 2419550 for assistance with filing or tracking complaints."
-
-  # utter_faq/anonymous_grievance:
-  #   - text: "Some departments may allow anonymous grievances, but tracking and resolution updates will not be possible without contact details."
-
-  # utter_faq/required_documents:
-  #   - text: "You may need to upload documents like ID proof, photos, or receipts depending on the nature of your grievance."
+  - text: "Call the Goa grievance helpline at 9319334335 for support."
 
   utter_faq/departments_covered:
-    - text: "Departments like PWD, Electricity, Health, Education, Panchayat, and more are covered under the Goa grievance redressal system."
+  - text: "The system covers all major Goa government departments, such as Health, Education, Police, and more."
 
 actions:
 - action_give_options
+- action_reset_grievance_form
+- action_ask_department
+- action_list_pending_grievances
+- action_show_grievance_status
+
 
 session_config:
   session_expiration_time: 60

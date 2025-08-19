@@ -2,31 +2,71 @@ version: "3.1"
 
 rules:
 
-- rule: Say goodbye anytime the user says goodbye
+- rule: Say goodbye when the conversation is over
   steps:
-    - intent: goodbye
-    - action: utter_goodbye
+  - action: utter_what_now
+  - intent: deny
+  - action: utter_goodbye
 
-- rule: Say 'I am a bot' anytime the user challenges
+- rule: start the conversation
   steps:
-    - intent: bot_challenge
-    - action: utter_iamabot
+  - intent: start
+  - action: action_give_options
 
-# FAQ flow entry
-- rule: Start FAQ 
+- rule: Handle FAQs
   steps:
-    - intent: select_faq
-    - action: utter_ask_faq
+  - intent: select_faq
+  - action: utter_ask_faq
 
-# FAQ response rule (looping)
-- rule: Answer FAQ and repeat    
+- rule: Handle FAQs
   steps:
-    - intent: faq
-    - action: utter_faq
-    - action: utter_ask_faq
+  - action: utter_ask_faq
+  - intent: faq
+  - action: utter_faq
+  - action: utter_what_now
 
-# Exit the loop on "no"
-- rule: Exit FAQ loop
+- rule: Handle Grievance submission
   steps:
+  - intent: select_submit
+  - action: action_reset_grievance_form
+  - action: grievance_form
+  - active_loop: grievance_form
+
+- rule: submit Grievance
+  condition:
+  - active_loop: grievance_form
+  steps:
+  - action: grievance_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: utter_ask_confirmation
+
+- rule: accept Grievance submission
+  steps:
+  - action: utter_ask_confirmation
+  - intent: affirm
+#  - intent: action_submit_grievance
+  - action: utter_submit_grievance
+  - action: utter_what_now
+
+- rule: deny Grievance submission
+  steps:
+  - action: utter_ask_confirmation
+  - or:
+    - intent: cancel
     - intent: deny
-    - action: utter_goodbye
+  - action: utter_cancel_grievance
+  - action: utter_what_now
+
+- rule: Handle Grievance Review
+  steps:
+  - intent: select_review
+  - action: action_list_pending_grievances
+
+- rule: Display grievance status when selected
+  steps:
+  - action: action_list_pending_grievances
+  - intent: select_grievance
+  - action: action_show_grievance_status
+  - action: utter_what_now
