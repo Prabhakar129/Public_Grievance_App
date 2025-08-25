@@ -4,6 +4,7 @@ import 'package:dpg_app/components/home/my_count_button.dart';
 import 'package:dpg_app/pages/chatbot_page.dart';
 import 'package:dpg_app/components/home/my_button.dart'; 
 import 'package:flutter/material.dart';
+import 'settings.dart'; // 👈 import your SettingsPage
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -18,11 +19,17 @@ class _HomePageState extends State<HomePage> {
   void onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
-      // Add navigation logic here based on index
     });
+
+    if (index == 3) { // 👈 index of Settings in BottomNavBar
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => const SettingsPage()),
+      );
+    }
   }
 
-  void Chatbot(BuildContext context) async {
+  void Chatbot(BuildContext context) {
     Navigator.push(
       context,
       MaterialPageRoute(
@@ -36,37 +43,25 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.transparent,
-        title: Text(
+        title: const Text(
           "Home", 
-          style: TextStyle(
-            color: Colors.grey,
-          ),
+          style: TextStyle(color: Colors.grey),
         ),
         centerTitle: true,
-        iconTheme: IconThemeData(color: Colors.grey),
-
+        iconTheme: const IconThemeData(color: Colors.grey),
         actions: [
           Container(
-            margin: EdgeInsets.only(right: 30),
+            margin: const EdgeInsets.only(right: 30),
             child: IconButton(
-              icon: Icon(
-                Icons.notifications_on_rounded,
-              ),
+              icon: const Icon(Icons.notifications_on_rounded),
               onPressed: () {},
             ),
           ),
         ],
-
       ),
       body: Column(
         children: [
-          //Spacer pushes buttons at bottom
-
-          //Curved Slider
           const CurvedSlider(),
-
-          // 3 buttons in a row
-
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
             child: Row(
@@ -76,24 +71,20 @@ class _HomePageState extends State<HomePage> {
                   child: MyCountButton(
                     count: 12, 
                     label: 'Total Grievance', 
-                    color: Color.fromARGB(255, 248, 174, 13),
+                    color: const Color.fromARGB(255, 248, 174, 13),
                     onTap: () {},
                   ),
                 ),
-
                 const SizedBox(width: 10),
-            
                 Expanded(
                   child: MyCountButton(
                     count: 5, 
                     label: 'Closed Grievance',
-                    color: Color.fromARGB(255, 40, 133, 43), 
+                    color: const Color.fromARGB(255, 40, 133, 43), 
                     onTap: () {},
                   ),
                 ),
-
                 const SizedBox(width: 10),
-            
                 Expanded(
                   child: MyCountButton(
                     count: 7, 
@@ -105,10 +96,7 @@ class _HomePageState extends State<HomePage> {
               ],
             ),
           ),
-
           const Spacer(),
-
-          //Two buttons in a line at the bottom
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
             child: Row(
@@ -117,12 +105,10 @@ class _HomePageState extends State<HomePage> {
                 Expanded(
                   child: MyButton(
                     text: "Button", 
-                    onTap: () {}
+                    onTap: () {},
                   ),
                 ),
-            
-                SizedBox(width: 16,),
-            
+                const SizedBox(width: 16),
                 Expanded(
                   child: MyButton(
                     text: "Chatbot", 
@@ -134,7 +120,6 @@ class _HomePageState extends State<HomePage> {
           ),
         ],
       ),
-      // 👇 Bottom Navigation Bar here
       bottomNavigationBar: BottomNavBar(
         selectedIndex: _selectedIndex, 
         onItemTapped: onItemTapped,

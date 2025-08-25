@@ -1,8 +1,8 @@
 import 'package:dpg_app/components/chatbot/custom_dropdown.dart';
+import 'package:dpg_app/components/chatbot/custom_attachment.dart'; 
 import 'package:flutter/material.dart';
 
 class ChatBubble extends StatelessWidget {
-
   final String text;
   final bool isUser;
   final List<dynamic> buttons;
@@ -10,7 +10,6 @@ class ChatBubble extends StatelessWidget {
   final List<String> dropdownItems;
   final String? selectedValue;
   final ValueChanged<String?>? onDropdownChanged;
-
 
   const ChatBubble({
     super.key,
@@ -25,17 +24,16 @@ class ChatBubble extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     final theme = Theme.of(context);
     final isDark = theme.brightness == Brightness.dark;
 
     return Container(
       margin: EdgeInsets.symmetric(vertical: 6, horizontal: 16),
       child: Column(
-        crossAxisAlignment: 
-          isUser ? CrossAxisAlignment.end : CrossAxisAlignment.start,
+        crossAxisAlignment:
+            isUser ? CrossAxisAlignment.end : CrossAxisAlignment.start,
         children: [
-          //Chat bubble
+          // Chat bubble
           Container(
             constraints: BoxConstraints(
               maxWidth: MediaQuery.of(context).size.width * 0.75,
@@ -43,19 +41,20 @@ class ChatBubble extends StatelessWidget {
             padding: EdgeInsets.symmetric(horizontal: 16, vertical: 12),
             decoration: BoxDecoration(
               gradient: isUser
-                ? LinearGradient(
-                  colors: [
-                    Color(0xFF667eea),
-                    Color(0xFF764ba2),
-                  ], 
-                  begin: Alignment.topLeft,
-                  end: Alignment.bottomRight,
-                ): null,
+                  ? LinearGradient(
+                      colors: [
+                        Color(0xFF667eea),
+                        Color(0xFF764ba2),
+                      ],
+                      begin: Alignment.topLeft,
+                      end: Alignment.bottomRight,
+                    )
+                  : null,
               color: isUser
-                ? null
-                : isDark
-                  ? Color(0xFF2C2C2E)
-                  : Color(0xFFF2F2F7),   
+                  ? null
+                  : isDark
+                      ? Color(0xFF2C2C2E)
+                      : Color(0xFFF2F2F7),
               borderRadius: BorderRadius.only(
                 topLeft: Radius.circular(20),
                 topRight: Radius.circular(20),
@@ -68,7 +67,7 @@ class ChatBubble extends StatelessWidget {
                   blurRadius: 10,
                   offset: Offset(0, 2),
                 )
-              ],             
+              ],
             ),
             child: Text(
               text,
@@ -76,11 +75,11 @@ class ChatBubble extends StatelessWidget {
                 fontSize: 16,
                 height: 1.4,
                 color: isUser
-                  ? Colors.white
-                  : isDark
                     ? Colors.white
-                    : Color(0xFF1C1C1E),
-                fontWeight: FontWeight.w400,    
+                    : isDark
+                        ? Colors.white
+                        : Color(0xFF1C1C1E),
+                fontWeight: FontWeight.w400,
               ),
             ),
           ),
@@ -105,7 +104,7 @@ class ChatBubble extends StatelessWidget {
               child: Wrap(
                 spacing: 8,
                 runSpacing: 8,
-                alignment:  isUser ? WrapAlignment.end : WrapAlignment.start,
+                alignment: isUser ? WrapAlignment.end : WrapAlignment.start,
                 children: List.generate(buttons.length, (index) {
                   final button = buttons[index];
                   return Material(
@@ -115,7 +114,8 @@ class ChatBubble extends StatelessWidget {
                       onTap: () => onButtonPressed(button['payload']),
                       borderRadius: BorderRadius.circular(25),
                       child: Container(
-                        padding: EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+                        padding:
+                            EdgeInsets.symmetric(horizontal: 16, vertical: 10),
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(25),
                           border: Border.all(
@@ -123,13 +123,13 @@ class ChatBubble extends StatelessWidget {
                             width: 1,
                           ),
                           color: isDark
-                            ? Color(0xFF1C1C1E)
-                            : Colors.white,
+                              ? Color(0xFF1C1C1E)
+                              : Colors.white,
                         ),
                         child: Text(
                           button['title'],
                           style: TextStyle(
-                            color: Color(0xFFF6667eea),
+                            color: Color(0xFF667eea),
                             fontWeight: FontWeight.w500,
                             fontSize: 14,
                           ),
@@ -141,23 +141,36 @@ class ChatBubble extends StatelessWidget {
               ),
             ),
 
-          //Dropdown section
+          // Dropdown section
           if (dropdownItems.isNotEmpty)
             Padding(
               padding: EdgeInsets.only(top: 12),
               child: CustomDropdown(
-                items: dropdownItems!,
+                items: dropdownItems,
                 selectedValue: selectedValue,
                 hintText: "Select the department",
-                onChanged: onDropdownChanged ?? (value) {
-                  if(value != null) {
-                    onButtonPressed(value);
-                  }
+                onChanged: onDropdownChanged ??
+                    (value) {
+                      if (value != null) {
+                        onButtonPressed(value);
+                      }
+                    },
+              ),
+            ),
+
+          // 📎 Custom attachment section
+          if (text.toLowerCase().contains("supporting documents") ||
+              text.toLowerCase().contains("photos"))
+            Padding(
+              padding: EdgeInsets.only(top: 12),
+              child: CustomAttachment(
+                onFileSelected: (file) {
+                  // Here you can send file path/message back to bot
+                  onButtonPressed("Uploaded: ${file.path.split('/').last}");
                 },
               ),
             ),
-  
-        ],    
+        ],
       ),
     );
   }

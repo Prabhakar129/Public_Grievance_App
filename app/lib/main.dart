@@ -1,4 +1,4 @@
-import 'package:dpg_app/pages/home_page.dart';
+import 'package:dpg_app/pages/welcome_page.dart';
 import 'package:dpg_app/theme/light_mode.dart';
 import 'package:flutter/material.dart';
 
@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Taxi Chatbot',
       theme: lightMode,
-      home: HomePage(),
+      home: WelcomePage(),
     );
   }
 }

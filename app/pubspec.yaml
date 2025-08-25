@@ -9,8 +9,9 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  flutter_map: ^7.0.2
-  latlong2: ^0.9.1  
+  shared_preferences: ^2.2.3  
+  image_picker: ^1.1.2   
+  file_picker: ^8.1.2
   http: ^1.4.0
   speech_to_text: ^6.3.0 # For voice-to-text (STT)
   flutter_tts: ^3.8.5    # For text-to-speech (TTS)
