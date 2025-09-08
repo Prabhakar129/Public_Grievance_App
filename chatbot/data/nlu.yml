@@ -1,0 +1,327 @@
+version: "3.1"
+
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - moin
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
+
+- intent: goodbye
+  examples: |
+    - cu
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
+
+- intent: affirm
+  examples: |
+    - yes
+    - y
+    - indeed
+    - of course
+    - that sounds good
+    - correct
+
+- intent: deny
+  examples: |
+    - no
+    - n
+    - never
+    - I don't think so
+    - don't like that
+    - no way
+    - not really
+
+- intent: start
+  examples: |
+    - start
+    - restart
+    - i would like to restart the process
+    - start over
+
+- intent: select_submit
+  examples: |
+    - Submit Grievance
+    - I want to submit a new complaint.
+    - Let me file a grievance now.
+    - I would like to make a submission.
+    - Please help me submit my issue.
+    - I need to file a new complaint.
+    - I want to report a problem.
+    - Take me to the complaint submission form.
+    - Help me file a complaint.
+    - I am ready to register a grievance.
+    - Can I start the grievance process?
+    - I wish to submit an issue to the department.
+    - Please guide me to submit my problem.
+    - I’d like to open the submission screen.
+    - I need to create a new complaint.
+    - How do I file my complaint?
+    - Start the grievance submission process for me.
+    - I want to lodge a complaint.
+
+- intent: select_review
+  examples: |
+    - Review Grievance
+    - I want to check the status of my previous complaint.
+    - I want to review my earlier grievance.
+    - Let me see how my last complaint is progressing.
+    - Can I check my past complaint’s status?
+    - I’d like to review my previous complaint.
+    - How is my old complaint doing?
+    - Show me the status of complaints I have already filed.
+    - Can I get an update on my past grievance?
+    - I’d like to check the progress of my earlier issue.
+    - How do I review my previous submission?
+    - I want to track my last complaint.
+    - Please show me updates on my previous complaint.
+    - Where can I see the status of my earlier complaint?
+    - Can I review the progress of my last grievance?
+    - Give me details about my previous complaint.
+    - Can I check how my old grievance is being handled?
+    - I’d like to know what’s happening with my previous issue.
+    - Show me the progress on my past complaint.
+    - How can I follow up on a complaint I made earlier?
+    - Let me check what happened to my earlier complaint.
+
+- intent: select_faq
+  examples: |
+    - faq
+    - I have a question
+    - I want to ask a question
+    - Can I ask you something?
+    - I need to ask a question
+    - I have a doubt
+    - There is something I want to know
+    - Can I ask a doubt?
+    - I’d like to ask something
+    - I need some information
+    - I have a query to ask
+    - I want to clarify something
+    - Can I ask a query?
+    - I would like to raise a question
+    - I have a few questions
+    - Let me ask a question
+    - Can you answer a question for me?
+    - I wish to ask something
+    - I am seeking some answers
+    - I want to know something
+    - I’d like to ask you a question
+
+- intent: faq/how_to_file_grievance
+  examples: |
+    - How do I file a grievance?
+    - How can I complain about a government issue?
+    - What is the process to raise a grievance?
+    - I want to submit a complaint
+    - Where can I lodge my grievance?
+    - Tell me how to file a complaint
+    - I have a problem to report, what should I do?
+    - What steps to file a grievance?
+    - Guide me to report an issue
+    - How do I raise a complaint against a department?
+    - I need to submit a grievance request
+    - Can I file a grievance online?
+    - How do I access the grievance filing system?
+    - How do I start a new grievance application?
+    - Where do I register my complaint?
+    - How can I make a formal complaint to the government?
+    - Help me file a grievance
+    - I wish to register a complaint, help?
+    - Which section is for submitting grievances?
+    - I want to enter a new grievance
+
+- intent: faq/grievance_types
+  examples: |
+    - What types of grievances can I file?
+    - What complaints are accepted here?
+    - Which issues can I raise?
+    - What categories of problems can I report?
+    - Give me a list of acceptable grievances
+    - Can I complain about corruption here?
+    - Is service quality a valid grievance?
+    - Can I report public scheme issues?
+    - What kind of problems are covered?
+    - Can I file a harassment grievance?
+    - Are land issues accepted as grievances?
+    - What are the main categories for complaints?
+    - Can I submit pension-related complaints?
+    - Can I report malpractices?
+    - Is there a list of grievance types?
+    - What sort of issues can I complain about?
+    - Can I report atrocities?
+    - Are government service issues included?
+    - Are legal matters part of grievances?
+    - Tell me the grievance types
+
+- intent: faq/resolution_time
+  examples: |
+    - How long does it take to resolve a grievance?
+    - When will my complaint be solved?
+    - What is the standard resolution time?
+    - Expected timeline for grievance resolution?
+    - What is the SLA for grievances?
+    - How many days for a complaint to be handled?
+    - Is there a deadline for complaint resolution?
+    - Grievance resolution time?
+    - Average time taken to resolve grievances?
+    - When will I get an update on my grievance?
+    - Complaint resolution duration?
+    - How quickly are grievances addressed?
+    - When can I expect a response?
+    - Are there fixed timelines for resolving complaints?
+    - What is the usual time for issue closure?
+    - Maximum resolution time for grievances?
+    - How soon will my grievance be processed?
+    - How much time does it typically take?
+    - Will I be informed about the resolution time?
+    - What if my complaint is delayed?
+
+- intent: faq/track_status
+  examples: |
+    - How can I track the status of my grievance?
+    - Can I check my complaint progress?
+    - Where do I see the status of my complaint?
+    - How do I know if my grievance is being processed?
+    - Track my grievance
+    - Guide me to grievance status page
+    - Is there a way to view my complaint updates?
+    - How to check the stage of my complaint?
+    - What is the current status of my grievance?
+    - Did my complaint get registered properly?
+    - Was my complaint received by the department?
+    - Can I see resolution progress?
+    - What is my grievance status now?
+    - Where do I enter my acknowledgement number?
+    - How to follow up on my complaint?
+    - Any update on my complaint?
+    - Show me the complaint tracking option
+    - Can I get tracking notifications?
+    - Will I be updated on grievance progress?
+    - How often is complaint status updated?
+
+- intent: faq/not_resolved
+  examples: |
+    - My grievance hasn’t been resolved yet
+    - What if my complaint is still pending?
+    - I haven’t received a solution for my issue
+    - My complaint is delayed, what should I do?
+    - My complaint is not attended to
+    - What can I do if my grievance is ignored?
+    - Who do I contact for unresolved complaints?
+    - How to escalate my issue?
+    - The department didn’t respond to my grievance
+    - My complaint status hasn’t changed
+    - My issue hasn’t moved forward
+    - Still waiting for resolution
+    - How do I follow up on an old grievance?
+    - I need to raise the complaint again
+    - Timeline breached for my grievance
+    - Whom to approach for unresolved matters?
+    - What next if my complaint is not closed?
+    - My issue is stuck, what now?
+    - Lapsed time for complaint resolution, what to do?
+    - What action if grievance is rejected?
+
+- intent: faq/registration_required
+  examples: |
+    - Do I need to register to file a grievance?
+    - Is account creation required to submit a complaint?
+    - Can I complain without registering?
+    - Is sign up mandatory for complaints?
+    - Do I have to log in to report an issue?
+    - Can I file a complaint as a guest?
+    - Is registration compulsory for grievances?
+    - Why is registration needed to lodge a grievance?
+    - Can I submit complaint anonymously?
+    - Do I need my Aadhaar to file a grievance?
+    - Is my email ID needed for account creation?
+    - Can I use mobile number to register?
+    - Any registration process before complaining?
+    - Account needed for tracking complaints?
+    - Why do I need to give my phone number?
+    - Can I skip registration?
+    - What info is required to register?
+    - Is verification needed to file a grievance?
+    - Must I register only once?
+    - Do I need a separate registration for each complaint?
+
+- intent: faq/helpline_contact
+  examples: |
+    - What is the grievance helpline number?
+    - Is there a contact number for help?
+    - How do I reach customer support?
+    - Can I call someone for complaint help?
+    - What is Goa’s grievance helpline?
+    - Need a number for complaints support
+    - Give me the helpline contact
+    - Whom do I call for filing a grievance?
+    - What’s the government grievance support number?
+    - Is phone support available?
+    - Where do I call for help in filing complaints?
+    - Is there a helpline for grievance queries?
+    - How can I get real-time support?
+    - Please provide the customer care number
+    - Can I speak to an officer directly?
+    - How do I reach the grievance redressal center?
+    - Is there an emergency grievance contact?
+    - What is the support line’s working hours?
+    - Any toll-free number for complaints?
+    - Give me assistance number for grievances
+
+- intent: faq/departments_covered
+  examples: |
+    - Which departments are included in this grievance portal?
+    - What all departments can I file complaints against?
+    - Is police department covered here?
+    - Are revenue complaints accepted?
+    - Is education department included in the system?
+    - Can I file against multiple departments?
+    - What departments fall under grievance system?
+    - Are health-related grievances allowed?
+    - Is social welfare part of this portal?
+    - Can I complain to PWD using this service?
+    - Does this handle all government departments?
+    - Is urban development department covered?
+    - List the departments available for grievance
+    - Can I report issues to agriculture department?
+    - Does the grievance app cover public transport?
+    - Are all ministries included?
+    - Is rural department counted in this system?
+    - Can I submit grievances for electricity department?
+    - Is water supply covered under this?
+    - Does this include tourism department?
+
+- intent: cancel
+  examples: |
+    - I changed my mind
+    - Never mind
+    - Cancel
+    - Forget it
+    - I don't want to submit anymore
+    - Stop the submission process
+    - Leave it
+    - Cancel it please
+    - I want to cancel
+    - I don't want to continue
+    - Let’s not do this
+    - Stop, I don’t want to go ahead
+    - Please cancel the request
+    - i changed my mind

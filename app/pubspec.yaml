@@ -1,0 +1,28 @@
+name: dpg_app
+description: A Flutter app integrated with Rasa chatbot
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: ">=3.4.4 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  shared_preferences: ^2.2.3  
+  image_picker: ^1.1.2   
+  file_picker: ^8.1.2
+  http: ^1.4.0
+  speech_to_text: ^6.3.0 # For voice-to-text (STT)
+  flutter_tts: ^3.8.5    # For text-to-speech (TTS)
+  permission_handler: ^11.3.1
+  google_fonts: ^6.1.0
+  flutter_secure_storage: ^9.2.4
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
+
+flutter:
+  uses-material-design: true

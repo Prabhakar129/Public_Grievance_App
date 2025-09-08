@@ -1,0 +1,78 @@
+# -------------------------------
+# Flutter / Dart
+# -------------------------------
+.dart_tool/
+.packages
+.pub-cache/
+build/
+ios/Flutter/Flutter.podspec
+ios/Flutter/Generated.xcconfig
+ios/Pods/
+linux/flutter/
+macos/Flutter/ephemeral/
+windows/flutter/
+**/*.lock
+
+# Android
+android/.gradle/
+android/app/build/
+*.iml
+.gradle/
+*.apk
+*.ap_
+
+# Xcode
+ios/Runner.xcworkspace/
+ios/Pods/
+*.xcuserstate
+*.xcworkspace
+*.xcodeproj/project.xcworkspace/
+
+# Web
+web/icons/
+
+# -------------------------------
+# VS Code / IntelliJ / IDEs
+# -------------------------------
+.vscode/
+.idea/
+*.swp
+
+# -------------------------------
+# Python / Rasa
+# -------------------------------
+__pycache__/
+*.py[cod]
+*.pyo
+*.egg-info/
+.env
+.rasa/cache/
+.rasa/tmp*/
+models/
+*.db
+.DS_Store
+
+# -------------------------------
+# Logs / Temporary
+# -------------------------------
+*.log
+*.tmp
+*.bak
+*.orig
+*.tmp.*
+.cache/
+
+# Node (if used anywhere)
+node_modules/
+
+# Flutter Generated Files
+.flutter-plugins
+.flutter-plugins-dependencies
+.metadata
+
+# -------------------------------
+# Others (Optional)
+# -------------------------------
+# Personal config files or OS files
+*.sublime-workspace
+Thumbs.db
