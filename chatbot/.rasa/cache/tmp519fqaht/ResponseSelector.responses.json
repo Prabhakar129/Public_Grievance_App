@@ -1,0 +1,42 @@
+{
+  "utter_faq/how_to_file_grievance": [
+    {
+      "text": "Choose the department and category, describe your issue, attach documents if needed, and submit, you can do this through this chatbot or the form present in the app. You’ll get an Acknowledgement Number to track your complaint."
+    }
+  ],
+  "utter_faq/grievance_types": [
+    {
+      "text": "You can file grievances about corruption, service issues, harassment, land/legal matters, pensions, government schemes, and more."
+    }
+  ],
+  "utter_faq/resolution_time": [
+    {
+      "text": "Most grievances are resolved within 7–30 days. You’ll be updated regularly on the progress."
+    }
+  ],
+  "utter_faq/track_status": [
+    {
+      "text": "Use your Acknowledgement Number in the app or portal to track your grievance status and get updates."
+    }
+  ],
+  "utter_faq/not_resolved": [
+    {
+      "text": "If unresolved, your grievance will be escalated. You can also contact the helpline for help."
+    }
+  ],
+  "utter_faq/registration_required": [
+    {
+      "text": "Yes, registration is required to file and track grievances."
+    }
+  ],
+  "utter_faq/helpline_contact": [
+    {
+      "text": "Call the Goa grievance helpline at 9319334335 for support."
+    }
+  ],
+  "utter_faq/departments_covered": [
+    {
+      "text": "The system covers all major Goa government departments, such as Health, Education, Police, and more."
+    }
+  ]
+}

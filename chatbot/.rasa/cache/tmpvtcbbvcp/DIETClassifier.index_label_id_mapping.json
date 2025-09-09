@@ -1,0 +1,12 @@
+{
+  "0": "affirm",
+  "1": "cancel",
+  "2": "deny",
+  "3": "faq",
+  "4": "goodbye",
+  "5": "greet",
+  "6": "select_faq",
+  "7": "select_review",
+  "8": "select_submit",
+  "9": "start"
+}
